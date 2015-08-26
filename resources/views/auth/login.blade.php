@@ -7,7 +7,6 @@
 <div style="width: 30%; margin: 50 auto;">
 <form method="POST" action="/auth/login">
     {!! csrf_field() !!}
-
         <div class="form-group input-group input-group-lg">
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-envelope"></span>
