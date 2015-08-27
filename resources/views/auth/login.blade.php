@@ -4,7 +4,7 @@
     <link type="text/css" href="/vendor/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-<div style="width: 30%; margin: 50 auto;">
+<div class="container" style="width: 40%; margin-top: 50px">
 <form method="POST" action="/auth/login">
     {!! csrf_field() !!}
         <div class="form-group input-group input-group-lg">
