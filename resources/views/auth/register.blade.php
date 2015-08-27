@@ -4,7 +4,6 @@
     <link type="text/css" href="bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-
 <form method="POST" action="/auth/register">
     {!! csrf_field() !!}
     <div>

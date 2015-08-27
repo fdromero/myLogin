@@ -19,8 +19,6 @@
             </span>
             <input class="form-control" type="password"  name="password" id="password" placeholder="Clave">
         </div>
-
-
         <div class="form-group">
             <input type="checkbox" name="remember"> Recordarme
         </div>
