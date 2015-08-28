@@ -1,32 +1,21 @@
-<!-- resources/views/auth/login.blade.php -->
-<head>
-    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8"></meta>
-    <link type="text/css" href="/vendor/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet" />
-</head>
-<body>
-<div class="container" style="width: 40%; margin-top: 50px">
-<form method="POST" action="/auth/login">
-    {!! csrf_field() !!}
-        <div class="form-group input-group input-group-lg">
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-envelope"></span>
-            </span>
-            <input class="form-control" type="email" placeholder="Email" name="email" value="{{ old('email') }}">
-        </div>
-        <div class="form-group input-group input-group-lg">
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-lock"></span>
-            </span>
-            <input class="form-control" type="password"  name="password" id="password" placeholder="Clave">
-        </div>
-        <div class="form-group">
-            <input type="checkbox" name="remember"> Recordarme
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">Login</button>
-        </div>
-
-</form>
+@extends("layout")
+@section("contenido")
+<div class="container">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <form class="form-signin" method="POST" action="/auth/login">
+                {!! csrf_field() !!}
+                <div class="panel panel-success">
+                    <div class="panel-heading">Iniciar sesion</div>
+                    <div class="panel-body">
+                        <input type="email" class="form-control" name="email" placeholder="Email" required autofocus></br>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required></br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Iniciar</button>
+                         <br>
+                        <p style="text-align: center"> <a href="register">Registrate </a></p>
+                    </div>
+                </div>
+            </form>
+    </div>
 </div>
-</body>
+@endsection

@@ -1,15 +1,5 @@
-@extends('principal')
+@extends("layout")
+@section("contenido")
+    Esta va a ser mi home
 
-@section('contenido')
-    <div class="container">
-        <div class="row">
-            <p class="text-center">este es el contenido</p>
-            <p class="text-center">este es el contenido</p>
-            <p class="text-center">este es el contenido</p>
-            <p class="text-center">este es el contenido</p>
-            <p class="text-center">este es el contenido</p>
-            <p class="text-center">este es el contenido</p>
-        </div>
-    </div>
-
-@stop
+@endsection
