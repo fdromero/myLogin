@@ -20,6 +20,18 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+//Ver usuarios
+
+Route::group(array('prefix'=> 'usuarios', 'middleware'=>'auth'), function(){
+
+    Route::get('/', 'UserController@index');
+    Route::get('/{id}/show', 'UserController@show');
+    Route::get('/create', 'UserController@create');
+    Route::post('/', 'UserController@store');
+});
+
+
+
 //el middleware evalua si esta logueado sigue
 Route::get('home',array("middleware"=>'auth', function(){
     return view('home.home');

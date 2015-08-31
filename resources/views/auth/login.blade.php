@@ -7,7 +7,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">Iniciar sesion</div>
                     <div class="panel-body">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required autofocus></br>
+                        <input type="email" class="form-control" name="username" placeholder="Email" required autofocus></br>
                         <input type="password" class="form-control" name="password" placeholder="Password" required></br>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                         Iniciar</button>
@@ -18,4 +18,12 @@
             </form>
     </div>
 </div>
+@if(count($errors)>0)
+    Hubo error
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+@endif
 @endsection

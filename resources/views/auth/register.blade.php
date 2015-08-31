@@ -8,7 +8,7 @@
         <div class="panel-body">
             <div class="control-group">
                 <!-- Username -->
-                <label class="control-label"  for="username">Name</label>
+                <label class="control-label"  for="name">Name</label>
                 <div class="input-group">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-user"></span>
@@ -19,12 +19,12 @@
 
             <div class="control-group">
                 <!-- E-mail -->
-                <label class="control-label" for="email">E-mail</label>
+                <label class="control-label" for="username">E-mail</label>
                 <div class="input-group">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-envelope"></span>
                     </span>
-                    <input type="email" class="form-control" value="{{ old('email') }}" name="email" placeholder="Email">
+                    <input type="email" class="form-control" value="{{ old('username') }}" name="username" placeholder="Email">
                 </div>
             </div>
 

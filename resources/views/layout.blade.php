@@ -18,9 +18,24 @@
     <![endif]-->
 </head>
 <body>
-
-@yield("contenido")
-
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <ul class="nav nav-pills">
+        @if(Auth::check())
+            <li role="presentation" class="active"><a href="/auth/logout">logout</a></li>
+            <li role="presentation"><a href="{{action('UserController@index')}}">Ver usuarios</a></li>
+        @else
+            <li role="presentation" class="active"><a href="/auth/login">login</a></li>
+        @endif
+        </ul>
+    </div>
+    <div class="panel-body">
+    @yield("contenido")
+    </div>
+    <div class="panel-footer">
+        Este va a ser mi pie de p&aacute;gina - Derechos de Estefi Cuicci
+    </div>
+</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
