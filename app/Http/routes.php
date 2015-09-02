@@ -28,6 +28,9 @@ Route::group(array('prefix'=> 'usuarios', 'middleware'=>'auth'), function(){
     Route::get('/{id}/show', 'UserController@show');
     Route::get('/create', 'UserController@create');
     Route::post('/', 'UserController@store');
+    Route::get('/{id}/edit', 'UserController@edit');
+    Route::put('/{id}', 'UserController@update');
+    Route::get('/{id}/destroy', 'UserController@destroy');
 });
 
 

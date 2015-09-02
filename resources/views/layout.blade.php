@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Usuarios y login</title>
 
     <!-- Bootstrap -->
     <link href="/vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,10 +22,12 @@
     <div class="panel-heading">
         <ul class="nav nav-pills">
         @if(Auth::check())
-            <li role="presentation" class="active"><a href="/auth/logout">logout</a></li>
-            <li role="presentation"><a href="{{action('UserController@index')}}">Ver usuarios</a></li>
+            <li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></li>
+            @if(Auth::user()->isAdmin)
+                <li role="presentation"><a href="{{action('UserController@index')}}">Ver Usuarios</a></li>
+            @endif
         @else
-            <li role="presentation" class="active"><a href="/auth/login">login</a></li>
+            <li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogin')}}">login</a></li>
         @endif
         </ul>
     </div>
