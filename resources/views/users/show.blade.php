@@ -23,8 +23,10 @@
     						<td>{{$user->created_at}}</td>
     						<td>{{$user->updated_at}}</td>
     						<td><a href="{{action("UserController@edit", $user->id)}}"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;&nbsp;
-                                <a href="{{action("UserController@destroy", $user->id)}}"><span class="glyphicon glyphicon-remove"></span></a></td>
-    					</tr>
+                                {{--@if(Entrust::can('destroy_usuario'))--}}
+									<a href="{{action("UserController@destroy", $user->id)}}"><span class="glyphicon glyphicon-remove"></span></a></td>
+    							{{--@endif--}}
+						</tr>
     				</tbody>
     			</table>
     	  </div>

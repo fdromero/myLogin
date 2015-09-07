@@ -20,7 +20,7 @@
 
                     <div class="control-group">
                         <!-- E-mail -->
-                        <label class="control-label" for="username">E-mail</label>
+                        <label class="control-label" for="username">Username</label>
                         <div class="input-group">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-envelope"></span>

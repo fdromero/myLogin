@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -22,12 +12,25 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 //Ver usuarios
 
-Route::group(array('prefix'=> 'usuarios', 'middleware'=>'auth'), function(){
+Route::group(/**
+ *
+ */
+    array('prefix'=> 'usuarios', 'middleware'=>'auth'), function(){
+    //edita y al clickear en modificar Forbbiden
+    //Entrust::routeNeedsPermission('/{id}/edit', 'edit_usuario');
+
+
 
     Route::get('/', 'UserController@index');
     Route::get('/{id}/show', 'UserController@show');
     Route::get('/create', 'UserController@create');
     Route::post('/', 'UserController@store');
+//        if (!Entrust::hasRole('propietario'))
+//    Route::get('/{id}/edit', [
+//        'middleware' => 'auth',
+//        'uses' => 'UserController@showProfile'
+//    ]);
+
     Route::get('/{id}/edit', 'UserController@edit');
     Route::put('/{id}', 'UserController@update');
     Route::get('/{id}/destroy', 'UserController@destroy');

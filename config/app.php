@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -144,6 +144,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Sroutier\EloquentLDAP\Providers\EloquentLDAPServiceProvider::class,
+        'Zizaco\Entrust\EntrustServiceProvider',
+
     ],
 
     /*
@@ -191,7 +194,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
     ],
 
 ];

@@ -20,17 +20,35 @@
 <body>
 <div class="panel panel-warning">
     <div class="panel-heading">
-        <ul class="nav nav-pills">
+        <div class="navbar">
+        	<ul class="nav nav-tabs">
+                @if(Auth::check())
+                    <li role="presentation" class="active"><a href="{{action('UserController@index')}}">Ver Usuarios</a></li>
+        		    </li>
+                @endif
+                @if(Entrust::can('ver_usuarios'))
+                        <li role="presentation"><a href="#">Roles y Permisos</a></li>
+        		        </li>
+                    @endif
+        	</ul>
+        </div>
+        {{--@if(Auth::check())--}}
+            {{--<li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></li>--}}
+            {{--@if(Entrust::can('ver_usuarios'))--}}
+                {{--<li role="presentation"><a href="{{action('UserController@index')}}">Ver Usuarios</a></li>--}}
+            {{--@endif--}}
+        {{--@else--}}
+            {{--<li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogin')}}">login</a></li>--}}
+        {{--@endif--}}
         @if(Auth::check())
-            <li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></li>
-            @if(Auth::user()->isAdmin)
-                <li role="presentation"><a href="{{action('UserController@index')}}">Ver Usuarios</a></li>
-            @endif
+                <p class="navbar-text navbar-right">Bienvenido {{Auth::user()->name}}</p>
+                <div class="navbar-text navbar-right"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></div>
         @else
-            <li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogin')}}">login</a></li>
+            <div class="navbar-text navbar-right"><a href="{{action('Auth\AuthController@getLogin')}}">Login</a></div>
         @endif
-        </ul>
-    </div>
+
+        {{--</ul>--}}
+    {{--</div>--}}
     <div class="panel-body">
     @yield("contenido")
     </div>
@@ -42,5 +60,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/vendor/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>
