@@ -19,22 +19,19 @@ Route::group(/**
     //edita y al clickear en modificar Forbbiden
     //Entrust::routeNeedsPermission('/{id}/edit', 'edit_usuario');
 
-
-
     Route::get('/', 'UserController@index');
     Route::get('/{id}/show', 'UserController@show');
     Route::get('/create', 'UserController@create');
     Route::post('/', 'UserController@store');
-//        if (!Entrust::hasRole('propietario'))
-//    Route::get('/{id}/edit', [
-//        'middleware' => 'auth',
-//        'uses' => 'UserController@showProfile'
-//    ]);
-
     Route::get('/{id}/edit', 'UserController@edit');
     Route::put('/{id}', 'UserController@update');
     Route::get('/{id}/destroy', 'UserController@destroy');
 });
+
+Route::group(
+    array('prefix'=> 'roles', 'middleware' => 'rol'), function(){
+    Route::get('/', 'RolController@index');
+    });
 
 
 

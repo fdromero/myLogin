@@ -17,22 +17,22 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
 <div class="panel panel-warning">
     <div class="panel-heading">
-        <div class="navbar">
-        	<ul class="nav nav-tabs">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
                 @if(Auth::check())
-                    <li role="presentation" class="active"><a href="{{action('UserController@index')}}">Ver Usuarios</a></li>
-        		    </li>
+                    <li class="active"><a href="{{action('UserController@index')}}">Ver Usuarios <span class="sr-only">(current)</span></a></li>
                 @endif
                 @if(Entrust::can('ver_usuarios'))
-                        <li role="presentation"><a href="#">Roles y Permisos</a></li>
-        		        </li>
-                    @endif
+                    <li class="active"><a href="{{action('RolController@index')}}">Roles y Permisos<span class="sr-only">(current)</span></a></li>
+                @endif
+                @if(Entrust::hasRole('admin', 'propietario'))
+                    <li class="active"><a href="{{action('RolController@index')}}">Rutas y Permisos<span class="sr-only">(current)</span></a></li>
+                @endif
         	</ul>
         </div>
-        {{--@if(Auth::check())--}}
+
             {{--<li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></li>--}}
             {{--@if(Entrust::can('ver_usuarios'))--}}
                 {{--<li role="presentation"><a href="{{action('UserController@index')}}">Ver Usuarios</a></li>--}}
@@ -41,16 +41,39 @@
             {{--<li role="presentation" class="active"><a href="{{action('Auth\AuthController@getLogin')}}">login</a></li>--}}
         {{--@endif--}}
         @if(Auth::check())
-                <p class="navbar-text navbar-right">Bienvenido {{Auth::user()->name}}</p>
-                <div class="navbar-text navbar-right"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{action('Auth\AuthController@getLogout')}}">Salir</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
         @else
-            <div class="navbar-text navbar-right"><a href="{{action('Auth\AuthController@getLogin')}}">Login</a></div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{action('Auth\AuthController@getLogin')}}">Ingresar</a></li>
+                <li><a href="{{action('Auth\AuthController@getRegister')}}">Registrate</a></li>
+            </ul>
         @endif
+    </div>
+
+
+
+
+        {{--@if(Auth::check())--}}
+                {{--<p class="navbar-text navbar-right">Bienvenido {{Auth::user()->name}}</p>--}}
+                {{--<div class="navbar-text navbar-right"><a href="{{action('Auth\AuthController@getLogout')}}">logout</a></div>--}}
+        {{--@else--}}
+            {{--<div class="navbar-text navbar-right"><a href="{{action('Auth\AuthController@getLogin')}}">Login</a></div>--}}
+        {{--@endif--}}
 
         {{--</ul>--}}
-    {{--</div>--}}
+
     <div class="panel-body">
-    @yield("contenido")
+        @yield("contenido")
     </div>
     <div class="panel-footer">
         Este va a ser mi pie de p&aacute;gina - Derechos de Estefi Cuicci
@@ -60,6 +83,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/vendor/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-</div>
-</body>
 </html>
