@@ -34,6 +34,15 @@ Route::group(
     });
 
 
+Route::group(
+    array('prefix'=> 'rutas', 'middleware' => 'rol'), function(){
+    Route::get('/', 'RutaController@index');
+    Route::get('/create', 'RutaController@create');
+    Route::post('/', 'RutaController@store');
+    Route::get('/{id}/destroy', 'RutaController@destroy');
+});
+
+
 
 //el middleware evalua si esta logueado sigue
 Route::get('home',array("middleware"=>'auth', function(){
