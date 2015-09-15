@@ -20,16 +20,15 @@
                 <td>{{$user->nombre}}</td>
                 <td>{{$user->username}}</td>
                 <td>{{$user->rol}}</td>
-                <td>piripipi</td>
+                <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;&nbsp;
+                    {{--@if(Entrust::can('destroy_usuario'))--}}
+                </td>
             </tr>
         @empty
             <tr>
                 <td colspan="4">No hay datos</td>
             </tr>
         @endforelse
-        <tr>
-            <td colspan="4"><a class="button" href="{{action("UserController@create")}}">Crear nuevo usuario</a> </td>
-        </tr>
         </tbody>
     </table>
 @endsection

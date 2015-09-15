@@ -31,6 +31,7 @@ Route::group(/**
 Route::group(
     array('prefix'=> 'roles', 'middleware' => 'rol'), function(){
     Route::get('/', 'RolController@index');
+    Route::get('/{id}/edit', 'RolController@edit');
     });
 
 

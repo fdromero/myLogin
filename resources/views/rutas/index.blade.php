@@ -11,7 +11,6 @@
             <th>Ruta</th>
             <th>Titulo</th>
             <th>Rol</th>
-            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
